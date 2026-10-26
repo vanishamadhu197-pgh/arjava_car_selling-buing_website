@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AK Cars | Auto Consulting - Wheels for Feels | Karaikudi</title>
+  <meta name="description" content="AK Cars Auto Consulting in Karaikudi. Buy, Sell, and Exchange verified used cars. Park & Sale on commission basis. Contact: 8248828448.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Top Contact Bar */
+    .top-contact-bar {
+      background: #06080b;
+      border-bottom: 1px solid var(--border-color);
+      padding: 6px 0;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    .top-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .top-bar-contact {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .top-contact-link {
+      color: var(--text-white);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+
+    .top-contact-link:hover {
+      color: var(--primary-red);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      padding: 5rem 0 4.5rem;
+      background: radial-gradient(circle at 75% 30%, rgba(229, 9, 20, 0.22) 0%, transparent 60%),
+                  linear-gradient(180deg, #10141d 0%, var(--bg-black) 100%);
+      border-bottom: 1px solid var(--border-color);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(229, 9, 20, 0.15);
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-red);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.4rem;
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -1px;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title span {
+      color: var(--primary-red);
+      text-shadow: 0 0 25px var(--primary-red-glow);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-whatsapp-hero {
+      background: #25D366;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.85rem 1.6rem;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+      transition: all var(--transition-fast);
+    }
+
+    .btn-whatsapp-hero:hover {
+      background: #20ba5a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+
+    .stat-number span {
+      color: var(--primary-red);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .flyer-card-banner {
+      background: linear-gradient(135deg, #181d28 0%, #10141d 100%);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px var(--primary-red-glow);
+    }
+
+    .flyer-header {
+      background: linear-gradient(90deg, #b8050e 0%, var(--primary-red) 100%);
+      padding: 0.85rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .flyer-header h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 800;
+      color: white;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .flyer-body {
+      padding: 1.5rem;
+    }
+
+    .park-sale-box {
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px dashed var(--primary-red);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin-top: 1.25rem;
+      text-align: center;
+    }
+
+    /* Features Grid */
+    .features-section {
+      padding: 4.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title span {
+      color: var(--primary-red);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: all var(--transition-normal);
+    }
+
+    .feature-card:hover {
+      border-color: var(--primary-red);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(229, 9, 20, 0.12);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-red);
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .hero-title {
+        font-size: 2.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Contact Strip -->
+  <div class="top-contact-bar">
+    <div class="container top-bar-inner">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="color: var(--primary-red); font-weight: 700;">&#x1F4CD; Showroom:</span>
+        <span>KVS Nagar Main Road, Kalanivasal, Karaikudi - 630001</span>
+      </div>
+      <div class="top-bar-contact">
+        <span>Call / WhatsApp:</span>
+        <a href="tel:8248828448" class="top-contact-link">&#x1F4DE; 8248828448</a>
+        <a href="https://wa.me/918248828448?text=Hello%20AK%20Cars,%20I%20am%20interested%20in%20consulting%20for%20buying/selling%20a%20car." target="_blank" class="top-contact-link" style="color: #25D366;">
+          WhatsApp Chat
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="AK Cars Home">
+        <div class="ak-logo-badge">AK</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">CARS</span>
+          <span class="brand-slogan">Wheels for Feels</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="buy-cars.html" class="nav-link">Buy Cars</a></li>
+          <li><a href="sell-car.html" class="nav-link">Sell Car</a></li>
+          <li><a href="#consulting" class="nav-link">Auto Consulting</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="sell-car.html" class="btn btn-outline btn-sm">Park & Sale</a>
+        <a href="buy-cars.html" class="btn btn-primary btn-sm">Explore Cars</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-row">
+          <div class="hero-badge">&bull; AUTO CONSULTING</div>
+          <span class="consulting-tag">Karaikudi</span>
+          <span style="font-size: 0.8rem; color: var(--text-dim); font-weight: 500;">Drive Your Dreams With Us...</span>
+        </div>
+
+        <h1 class="hero-title">
+          Buy &bull; Sell &bull; Exchange <span>Used Cars</span>
+        </h1>
+        <p class="hero-desc">
+          Quality cars, trusted service, and fair transparent pricing. Explore verified pre-owned cars in Karaikudi with genuine history, or list your car on our signature <strong>Park & Sale</strong> commission model.
+        </p>
+
+        <div class="hero-actions">
+          <a href="buy-cars.html" class="btn btn-primary" style="padding: 0.85rem 1.85rem; font-size: 1rem;">
+            <span>Browse Used Cars</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a 
+            href="https://wa.me/918248828448?text=Hello%20AK%20Cars,%20I%20want%20to%20consult%20regarding%20buying/selling%20a%20car." 
+            target="_blank" 
+            class="btn-whatsapp-hero"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+            </svg>
+            <span>WhatsApp 8248828448</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="stat-number">100<span>%</span></div>
+            <div class="stat-label">Genuine History</div>
+          </div>
+          <div>
+            <div class="stat-number">Park<span>&amp;Sale</span></div>
+            <div class="stat-label">Commission Basis</div>
+          </div>
+          <div>
+            <div class="stat-number">Karaikudi<span>#1</span></div>
+            <div class="stat-label">Auto Consulting</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flyer Visual / Live Inventory Showcase -->
+      <div class="hero-visual">
+        <div class="flyer-card-banner">
+          <div class="flyer-header">
+            <h4>AK CARS &bull; AUTO CONSULTING</h4>
+            <span style="font-size: 0.75rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px;">Karaikudi</span>
+          </div>
+          <div class="flyer-body">
+            <img 
+              src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" 
+              alt="AK Cars Premium Selection" 
+              style="width: 100%; border-radius: var(--radius-md); object-fit: cover; max-height: 220px; margin-bottom: 1rem;"
+            />
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <strong style="color: white; font-size: 1.1rem; display: block;">Buy &bull; Sell &bull; Exchange</strong>
+                <small style="color: var(--text-muted);">Commercial &amp; Passenger Vehicles</small>
+              </div>
+              <a href="buy-cars.html" class="btn btn-outline btn-sm">View Stock &rarr;</a>
+            </div>
+
+            <div class="park-sale-box">
+              <strong style="color: var(--primary-red); font-size: 0.95rem; display: block;">PARK &amp; SALE FOR COMMISSION BASIS</strong>
+              <small style="color: var(--text-muted);">Park your car at our showroom. We handle buyers &amp; documentation.</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Pillars of AK Cars (Directly from Flyer) -->
+  <section class="features-section" id="consulting">
+    <div class="container">
+      <div class="section-head">
+        <div class="consulting-tag" style="display: inline-block; margin-bottom: 8px;">Why Choose Us</div>
+        <h2 class="section-title">The <span>AK Cars</span> Promise</h2>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Quality Cars &bull; Trusted Service &bull; Your Dreams, Our Priority
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F697;</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 6px;">Wide Range of Quality Cars</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            From hatchbacks and sedans to heavy SUVs and commercial pick-ups (Tata Ace, Dost, Fortuner, Creta).
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F6E1;</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 6px;">Genuine Vehicle History</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            100% verified documentation, non-accidental chassis inspection, clear RTO hypothecation and NOC transfer.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F91D;</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 6px;">Fair Price &amp; Transparent Deals</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            Honest market valuation for both buyers and sellers. No hidden broker markups or false promises.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">&#x1F9E0;</div>
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: white; margin-bottom: 6px;">Expert Auto Consulting</h3>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            Professional auto advice, insurance renewal, vehicle loan guidance, and complete RC transfer assistance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer with Karaikudi Address & 8248828448 Contact -->
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <div class="ak-logo-badge">AK</div>
+            <div class="brand-text-wrap">
+              <span class="brand-name">CARS</span>
+              <span class="brand-slogan">Wheels for Feels</span>
+            </div>
+          </a>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            <strong>AK Cars Auto Consulting</strong><br />
+            Buy &bull; Sell &bull; Exchange Used Cars<br />
+            Park &amp; Sale on Commission Basis.<br />
+            Drive Smart | Drive Happy
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Showroom Location</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            KVS Nagar Main Road,<br />
+            Kalanivasal, Karaikudi - 630001,<br />
+            Tamil Nadu, India
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Contact Us</h4>
+          <ul class="footer-links">
+            <li>
+              <a href="tel:8248828448" style="color: white; font-weight: 700; font-size: 1.1rem;">
+                &#x1F4DE; 8248828448
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/918248828448" target="_blank" style="color: #25D366; font-weight: 600;">
+                WhatsApp Direct Chat
+              </a>
+            </li>
+            <li><a href="sell-car.html">List Your Car For Sale</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="buy-cars.html">Explore Used Cars</a></li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 AK Cars Auto Consulting. All rights reserved.</span>
+        <span>DRIVE SMART &bull; DRIVE HAPPY</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Central API Service -->
+  <script src="js/api.js"></script>
+</body>
+</html>

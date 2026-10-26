@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sell Your Car | DriveX - Instant Valuation & Direct Buyers</title>
+  <meta name="description" content="Sell your used car on DriveX at the highest market price. List with photos, 360 media, and connect directly with verified buyers via WhatsApp.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Theme & Page Specific Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/sell-car.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="AK Cars Home">
+        <div class="ak-logo-badge">AK</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">CARS</span>
+          <span class="brand-slogan">Wheels for Feels</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="buy-cars.html" class="nav-link">Buy Cars</a></li>
+          <li><a href="sell-car.html" class="nav-link active">Sell Car</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="buy-cars.html" class="btn btn-outline btn-sm">Explore Cars</a>
+        <a href="sell-car.html" class="btn btn-primary btn-sm">List Your Car</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <section class="page-header-banner">
+    <div class="container">
+      <div class="page-header-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span class="current">Sell Your Car</span>
+        </nav>
+        <h1 class="page-title">Sell Your <span>Car Online</span></h1>
+        <p class="page-subtitle">
+          List your vehicle in under 3 minutes. Reach thousands of genuine buyers directly on WhatsApp with zero middlemen charges.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Multi-Step Form Container -->
+  <main class="sell-car-container">
+
+    <!-- 5-Step Stepper Progress Bar -->
+    <div class="stepper-wrapper">
+      <div class="stepper-nav">
+        <div class="stepper-track">
+          <div class="stepper-progress" id="stepperProgress"></div>
+        </div>
+
+        <button type="button" class="step-item active" data-step="1">
+          <div class="step-circle">1</div>
+          <span class="step-label">Vehicle Details</span>
+        </button>
+
+        <button type="button" class="step-item" data-step="2">
+          <div class="step-circle">2</div>
+          <span class="step-label">Price & Condition</span>
+        </button>
+
+        <button type="button" class="step-item" data-step="3">
+          <div class="step-circle">3</div>
+          <span class="step-label">Photos & 360&deg;</span>
+        </button>
+
+        <button type="button" class="step-item" data-step="4">
+          <div class="step-circle">4</div>
+          <span class="step-label">Seller Contact</span>
+        </button>
+
+        <button type="button" class="step-item" data-step="5">
+          <div class="step-circle">5</div>
+          <span class="step-label">Review & Publish</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 1: VEHICLE DETAILS
+         ============================================== -->
+    <div class="form-panel active" id="stepPanel1">
+      <div class="panel-header">
+        <h2 class="panel-title">Vehicle Specifications</h2>
+        <p class="panel-subtitle">Enter accurate technical details about your car to attract qualified buyers.</p>
+      </div>
+
+      <div class="form-grid">
+        <!-- Brand -->
+        <div class="form-group">
+          <label class="form-label" for="vehicleBrand">Car Brand / Make <span class="required">*</span></label>
+          <select id="vehicleBrand" class="form-select-custom">
+            <option value="">Select Brand</option>
+            <option value="Hyundai">Hyundai</option>
+            <option value="Maruti Suzuki">Maruti Suzuki</option>
+            <option value="Tata">Tata</option>
+            <option value="Mahindra">Mahindra</option>
+            <option value="Honda">Honda</option>
+            <option value="Toyota">Toyota</option>
+            <option value="Kia">Kia</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Volkswagen">Volkswagen</option>
+            <option value="Skoda">Skoda</option>
+            <option value="MG">MG</option>
+            <option value="Renault">Renault</option>
+            <option value="Ford">Ford</option>
+          </select>
+          <span class="error-message" id="vehicleBrandError">Please select a brand</span>
+        </div>
+
+        <!-- Model -->
+        <div class="form-group">
+          <label class="form-label" for="vehicleModel">Model <span class="required">*</span></label>
+          <input type="text" id="vehicleModel" class="form-input" placeholder="e.g. Creta, Thar, Nexon, Swift, City" />
+          <span class="error-message" id="vehicleModelError">Model is required</span>
+        </div>
+
+        <!-- Variant -->
+        <div class="form-group full-width">
+          <label class="form-label" for="vehicleVariant">Variant & Engine Trim <span class="required">*</span></label>
+          <input type="text" id="vehicleVariant" class="form-input" placeholder="e.g. 1.5 SX (O) IVT Automatic, ZXI Plus, LX 4x4" />
+          <span class="error-message" id="vehicleVariantError">Variant is required</span>
+        </div>
+
+        <!-- Mfg Year -->
+        <div class="form-group">
+          <label class="form-label" for="mfgYear">Manufacturing Year <span class="required">*</span></label>
+          <select id="mfgYear" class="form-select-custom">
+            <option value="">Select Year</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2010">2010 or earlier</option>
+          </select>
+          <span class="error-message" id="mfgYearError">Select manufacturing year</span>
+        </div>
+
+        <!-- Registration Year -->
+        <div class="form-group">
+          <label class="form-label" for="regYear">Registration Year <span class="required">*</span></label>
+          <select id="regYear" class="form-select-custom">
+            <option value="">Select Year</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+          </select>
+          <span class="error-message" id="regYearError">Select registration year</span>
+        </div>
+
+        <!-- Kilometres Driven -->
+        <div class="form-group">
+          <label class="form-label" for="kmDriven">Kilometres Driven <span class="required">*</span></label>
+          <input type="number" id="kmDriven" class="form-input" placeholder="e.g. 32000" min="0" step="500" />
+          <span class="error-message" id="kmDrivenError">Enter valid kilometres</span>
+        </div>
+
+        <!-- Number of Previous Owners -->
+        <div class="form-group">
+          <label class="form-label">Previous Owners <span class="required">*</span></label>
+          <div class="radio-cards-grid" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="radio-card">
+              <input type="radio" name="sellOwners" id="owner_1" value="1" checked>
+              <label for="owner_1" class="radio-card-content">
+                <span class="radio-card-title">1st</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellOwners" id="owner_2" value="2">
+              <label for="owner_2" class="radio-card-content">
+                <span class="radio-card-title">2nd</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellOwners" id="owner_3" value="3">
+              <label for="owner_3" class="radio-card-content">
+                <span class="radio-card-title">3rd</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellOwners" id="owner_4" value="4+">
+              <label for="owner_4" class="radio-card-content">
+                <span class="radio-card-title">4+</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fuel Type -->
+        <div class="form-group full-width">
+          <label class="form-label">Fuel Type <span class="required">*</span></label>
+          <div class="radio-cards-grid" style="grid-template-columns: repeat(5, 1fr);">
+            <div class="radio-card">
+              <input type="radio" name="sellFuelType" id="sell_fuel_petrol" value="Petrol" checked>
+              <label for="sell_fuel_petrol" class="radio-card-content">
+                <span class="radio-card-title">Petrol</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellFuelType" id="sell_fuel_diesel" value="Diesel">
+              <label for="sell_fuel_diesel" class="radio-card-content">
+                <span class="radio-card-title">Diesel</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellFuelType" id="sell_fuel_cng" value="CNG">
+              <label for="sell_fuel_cng" class="radio-card-content">
+                <span class="radio-card-title">CNG</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellFuelType" id="sell_fuel_electric" value="Electric">
+              <label for="sell_fuel_electric" class="radio-card-content">
+                <span class="radio-card-title">Electric</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellFuelType" id="sell_fuel_hybrid" value="Hybrid">
+              <label for="sell_fuel_hybrid" class="radio-card-content">
+                <span class="radio-card-title">Hybrid</span>
+              </label>
+            </div>
+          </div>
+          <span class="error-message" id="fuelTypeError">Please select a fuel type</span>
+        </div>
+
+        <!-- Transmission -->
+        <div class="form-group full-width">
+          <label class="form-label">Transmission <span class="required">*</span></label>
+          <div class="radio-cards-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="radio-card">
+              <input type="radio" name="sellTransmission" id="sell_trans_auto" value="Automatic" checked>
+              <label for="sell_trans_auto" class="radio-card-content">
+                <span class="radio-card-title">Automatic</span>
+                <span class="radio-card-sub">AT / CVT / DCT / AMT</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="sellTransmission" id="sell_trans_manual" value="Manual">
+              <label for="sell_trans_manual" class="radio-card-content">
+                <span class="radio-card-title">Manual</span>
+                <span class="radio-card-sub">Standard Stick Shift</span>
+              </label>
+            </div>
+          </div>
+          <span class="error-message" id="transTypeError">Please select a transmission</span>
+        </div>
+
+        <!-- Registration State -->
+        <div class="form-group">
+          <label class="form-label" for="regState">Registration State <span class="required">*</span></label>
+          <select id="regState" class="form-select-custom">
+            <option value="">Select State</option>
+            <option value="Maharashtra">Maharashtra (MH)</option>
+            <option value="Delhi NCR">Delhi (DL)</option>
+            <option value="Karnataka">Karnataka (KA)</option>
+            <option value="Telangana">Telangana (TS)</option>
+            <option value="Tamil Nadu">Tamil Nadu (TN)</option>
+            <option value="Gujarat">Gujarat (GJ)</option>
+            <option value="Haryana">Haryana (HR)</option>
+            <option value="Uttar Pradesh">Uttar Pradesh (UP)</option>
+            <option value="West Bengal">West Bengal (WB)</option>
+            <option value="Rajasthan">Rajasthan (RJ)</option>
+          </select>
+          <span class="error-message" id="regStateError">State is required</span>
+        </div>
+
+        <!-- Registration City -->
+        <div class="form-group">
+          <label class="form-label" for="regCity">Registration City / RTO <span class="required">*</span></label>
+          <input type="text" id="regCity" class="form-input" placeholder="e.g. Mumbai, Pune, Bangalore, Delhi" />
+          <span class="error-message" id="regCityError">City is required</span>
+        </div>
+
+        <!-- Registration Number (Secure) -->
+        <div class="form-group full-width">
+          <label class="form-label" for="regNumber">
+            <span>Registration Number (RTO) <span class="required">*</span></span>
+            <span class="secure-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              Confidential &bull; Never displayed publicly
+            </span>
+          </label>
+          <input type="text" id="regNumber" class="form-input" placeholder="e.g. MH02AB1234" maxlength="12" style="text-transform: uppercase;" />
+          <span class="label-hint">Used strictly for backend vehicle verification and Challan inspection. Public buyers only see City & RTO code.</span>
+          <span class="error-message" id="regNumberError">Enter valid RTO registration number</span>
+        </div>
+      </div>
+
+      <div class="form-actions-bar">
+        <div></div>
+        <button type="button" class="btn btn-primary btn-next-step">
+          <span>Continue to Price & Condition</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 2: PRICE AND CONDITION
+         ============================================== -->
+    <div class="form-panel" id="stepPanel2">
+      <div class="panel-header">
+        <h2 class="panel-title">Pricing & Vehicle Health</h2>
+        <p class="panel-subtitle">Set your asking price and disclose honest condition metrics to build trust.</p>
+      </div>
+
+      <div class="form-grid">
+        <!-- Expected Price -->
+        <div class="form-group">
+          <label class="form-label" for="sellingPrice">
+            <span>Expected Selling Price (INR) <span class="required">*</span></span>
+            <span id="priceLakhHint" style="color: var(--primary-red); font-weight: 600;"></span>
+          </label>
+          <input type="number" id="sellingPrice" class="form-input" placeholder="e.g. 1450000" min="20000" step="5000" />
+          <span class="error-message" id="sellingPriceError">Please enter a realistic price</span>
+        </div>
+
+        <!-- Negotiable -->
+        <div class="form-group">
+          <label class="form-label">Is the Price Negotiable?</label>
+          <div class="radio-cards-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="radio-card">
+              <input type="radio" name="isNegotiable" id="nego_yes" value="yes" checked>
+              <label for="nego_yes" class="radio-card-content">
+                <span class="radio-card-title">Yes (Open to Offers)</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="isNegotiable" id="nego_no" value="no">
+              <label for="nego_no" class="radio-card-content">
+                <span class="radio-card-title">No (Fixed Price)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Overall Condition -->
+        <div class="form-group full-width">
+          <label class="form-label">Overall Vehicle Condition <span class="required">*</span></label>
+          <div class="radio-cards-grid" style="grid-template-columns: repeat(4, 1fr);">
+            <div class="radio-card">
+              <input type="radio" name="overallCondition" id="cond_excellent" value="excellent" checked>
+              <label for="cond_excellent" class="radio-card-content">
+                <span class="radio-card-title">Excellent</span>
+                <span class="radio-card-sub">Like New &bull; Zero flaws</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="overallCondition" id="cond_very_good" value="very_good">
+              <label for="cond_very_good" class="radio-card-content">
+                <span class="radio-card-title">Very Good</span>
+                <span class="radio-card-sub">Minor normal wear</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="overallCondition" id="cond_good" value="good">
+              <label for="cond_good" class="radio-card-content">
+                <span class="radio-card-title">Good</span>
+                <span class="radio-card-sub">Well maintained</span>
+              </label>
+            </div>
+            <div class="radio-card">
+              <input type="radio" name="overallCondition" id="cond_fair" value="fair">
+              <label for="cond_fair" class="radio-card-content">
+                <span class="radio-card-title">Fair</span>
+                <span class="radio-card-sub">Needs cosmetic care</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Engine & Mechanical Condition -->
+        <div class="form-group">
+          <label class="form-label" for="engineCondition">Engine & Transmission Condition</label>
+          <select id="engineCondition" class="form-select-custom">
+            <option value="Mint - Smooth & Powerful">Mint - Smooth & Powerful</option>
+            <option value="Good - Regularly Tuned">Good - Regularly Tuned</option>
+            <option value="Average - Minor Servicing Needed">Average - Minor Servicing Needed</option>
+          </select>
+        </div>
+
+        <!-- Accident History -->
+        <div class="form-group">
+          <label class="form-label" for="accidentHistory">Accident or Structural Damage History</label>
+          <select id="accidentHistory" class="form-select-custom">
+            <option value="clean">Zero Major Accidents (Clean Chassis)</option>
+            <option value="minor_cosmetic">Minor Scratch / Bumper Repaint Only</option>
+            <option value="insurance_claim">Repaired via Authorized Insurance Claim</option>
+          </select>
+        </div>
+
+        <!-- Insurance Status -->
+        <div class="form-group">
+          <label class="form-label" for="insuranceStatus">Insurance Status</label>
+          <select id="insuranceStatus" class="form-select-custom">
+            <option value="comprehensive">Comprehensive / Zero Dep</option>
+            <option value="third_party">Third Party Only</option>
+            <option value="expired">Expired</option>
+          </select>
+        </div>
+
+        <!-- Insurance Expiry Date -->
+        <div class="form-group">
+          <label class="form-label" for="insuranceExpiry">Insurance Expiry Date</label>
+          <input type="date" id="insuranceExpiry" class="form-input" />
+          <span class="error-message" id="insuranceExpiryError">Required for active policies</span>
+        </div>
+
+        <!-- Service History -->
+        <div class="form-group">
+          <label class="form-label" for="serviceHistory">Service History Availability</label>
+          <select id="serviceHistory" class="form-select-custom">
+            <option value="Authorized Dealership Records Available">Full Authorized Dealership Records</option>
+            <option value="Partial Invoices Available">Partial Invoices Available</option>
+            <option value="Self Serviced / Local Garage">Local Garage Service</option>
+            <option value="Not Available">Not Available</option>
+          </select>
+        </div>
+
+        <!-- Loan Status -->
+        <div class="form-group">
+          <label class="form-label" for="loanStatus">Active Loan / Hypothecation</label>
+          <select id="loanStatus" class="form-select-custom">
+            <option value="none">No Active Loan (NOC Clear)</option>
+            <option value="loan_active">Active Loan (Bank Hypothecated)</option>
+          </select>
+        </div>
+
+        <!-- Description -->
+        <div class="form-group full-width">
+          <label class="form-label" for="carDescription">Additional Description / Modifications</label>
+          <textarea id="carDescription" class="form-textarea" rows="4" placeholder="Mention added accessories (e.g. 7D mats, ceramic coating, new Michelin tyres, upgraded touchscreen) and why you are selling."></textarea>
+        </div>
+      </div>
+
+      <div class="form-actions-bar">
+        <button type="button" class="btn btn-prev btn-prev-step">&larr; Back to Details</button>
+        <button type="button" class="btn btn-primary btn-next-step">
+          <span>Continue to Photos & 360&deg;</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 3: CAR PHOTOS & 360-DEGREE MEDIA
+         ============================================== -->
+    <div class="form-panel" id="stepPanel3">
+      <div class="panel-header">
+        <h2 class="panel-title">Car Photos & 360&deg; Media</h2>
+        <p class="panel-subtitle">Listings with high-resolution photos receive 5x more buyer inquiries.</p>
+      </div>
+
+      <!-- Regular Car Photos Dropzone -->
+      <div class="upload-dropzone" id="photoDropzone">
+        <input type="file" id="carPhotoInput" multiple accept="image/jpeg,image/png,image/webp,image/jpg" style="display: none;" />
+        <div class="dropzone-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </div>
+        <h3 class="dropzone-title">Click or Drag Car Photos Here</h3>
+        <p class="dropzone-subtitle">
+          Recommended shots: Front, Rear, Left & Right sides, Dashboard, Odometer, Tyres, and Boot.
+        </p>
+        <div class="dropzone-tags">
+          <span class="dropzone-tag">JPG, PNG, WebP</span>
+          <span class="dropzone-tag">Max 10MB per image</span>
+          <span class="dropzone-tag">Minimum 2 photos</span>
+        </div>
+      </div>
+      <span class="error-message" id="photoUploadError" style="margin-top: 8px;"></span>
+
+      <!-- Uploaded Photos Gallery Preview with Main Selection & Reordering -->
+      <div style="margin-top: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-white);" id="photoCountBadge">0 Photos Uploaded</h4>
+        <small style="color: var(--text-dim);">Tip: Click "Make Main" to choose your cover photo.</small>
+      </div>
+
+      <div class="uploaded-gallery" id="uploadedPhotosGallery">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- Dedicated 360-Degree Media Box -->
+      <div class="media-360-box">
+        <div class="media-360-header">
+          <h3 class="media-360-title">
+            <span class="badge-360">OPTIONAL</span>
+            360-Degree Exterior / Interior Media
+          </h3>
+          <span style="font-size: 0.8rem; color: var(--text-dim);">Multi-frame exterior spin or 360 panorama</span>
+        </div>
+        <p class="media-360-desc">
+          Upload an exterior rotational frame sequence or equirectangular 360-degree image. Note: Ordinary single-angle car photos will not generate an interactive 360 spin.
+        </p>
+
+        <div class="upload-dropzone" id="dropzone360" style="padding: 1.5rem; background: rgba(0,0,0,0.25);">
+          <input type="file" id="media360Input" multiple accept="image/*" style="display: none;" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--primary-red); margin-bottom: 6px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+          <div style="font-size: 0.875rem; font-weight: 600; color: var(--text-white);">Upload 360&deg; Media Files</div>
+          <small style="color: var(--text-dim);">Files will be pre-configured for the DriveX 360 Interactive Viewer</small>
+        </div>
+
+        <div id="gallery360Preview"></div>
+      </div>
+
+      <div class="form-actions-bar">
+        <button type="button" class="btn btn-prev btn-prev-step">&larr; Back to Pricing</button>
+        <button type="button" class="btn btn-primary btn-next-step">
+          <span>Continue to Seller Contact</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 4: SELLER INFORMATION
+         ============================================== -->
+    <div class="form-panel" id="stepPanel4">
+      <div class="panel-header">
+        <h2 class="panel-title">Seller Contact Information</h2>
+        <p class="panel-subtitle">Qualified buyers will message you directly on WhatsApp regarding this car.</p>
+      </div>
+
+      <div class="form-grid">
+        <!-- Full Name -->
+        <div class="form-group">
+          <label class="form-label" for="sellerName">Full Name <span class="required">*</span></label>
+          <input type="text" id="sellerName" class="form-input" placeholder="e.g. Rahul Sharma" />
+          <span class="error-message" id="sellerNameError">Please enter your name</span>
+        </div>
+
+        <!-- WhatsApp Phone -->
+        <div class="form-group">
+          <label class="form-label" for="whatsappNumber">
+            <span>WhatsApp Number <span class="required">*</span></span>
+            <span class="secure-badge" style="color: #25D366; border-color: rgba(37, 211, 102, 0.3); background: rgba(37, 211, 102, 0.1);">
+              Direct WhatsApp Inquiries
+            </span>
+          </label>
+          <div style="display: flex; gap: 8px;">
+            <input type="text" value="+91 (India)" readonly class="form-input" style="width: 110px; text-align: center; color: var(--text-muted); cursor: not-allowed;" />
+            <input type="tel" id="whatsappNumber" class="form-input" placeholder="9876543210" maxlength="10" />
+          </div>
+          <span class="error-message" id="whatsappNumberError">Valid 10-digit number required</span>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label class="form-label" for="sellerEmail">Email Address <span class="label-hint">(Optional)</span></label>
+          <input type="email" id="sellerEmail" class="form-input" placeholder="rahul@example.com" />
+          <span class="error-message" id="sellerEmailError">Enter valid email address</span>
+        </div>
+
+        <!-- Preferred Contact Time -->
+        <div class="form-group">
+          <label class="form-label" for="preferredContactTime">Preferred Contact Hours</label>
+          <select id="preferredContactTime" class="form-select-custom">
+            <option value="Anytime (9:00 AM - 9:00 PM)">Anytime (9:00 AM - 9:00 PM)</option>
+            <option value="Morning Only (9:00 AM - 12:00 PM)">Morning Only (9:00 AM - 12:00 PM)</option>
+            <option value="Afternoon Only (12:00 PM - 5:00 PM)">Afternoon Only (12:00 PM - 5:00 PM)</option>
+            <option value="Evening Only (5:00 PM - 9:00 PM)">Evening Only (5:00 PM - 9:00 PM)</option>
+            <option value="WhatsApp Messages Only">WhatsApp Chat Only (No Calls)</option>
+          </select>
+        </div>
+
+        <!-- Ownership Authorization Checkbox -->
+        <div class="form-group full-width" style="margin-top: 1rem;">
+          <label class="checkbox-label" style="align-items: flex-start; padding: 10px; border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+            <input type="checkbox" id="authCheck" style="margin-top: 3px;" />
+            <span style="font-size: 0.85rem; line-height: 1.5; color: var(--text-white);">
+              I confirm that I am the legal owner of this vehicle or have obtained explicit authorization from the registered owner to list this car for sale on DriveX.
+            </span>
+          </label>
+          <span class="error-message" id="authCheckError">You must confirm authorization before proceeding</span>
+        </div>
+      </div>
+
+      <div class="form-actions-bar">
+        <button type="button" class="btn btn-prev btn-prev-step">&larr; Back to Photos</button>
+        <button type="button" class="btn btn-primary btn-next-step">
+          <span>Review Listing Summary</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         STEP 5: PREVIEW AND FINAL SUBMISSION
+         ============================================== -->
+    <div class="form-panel" id="stepPanel5">
+      <div class="panel-header">
+        <h2 class="panel-title">Review & Publish Listing</h2>
+        <p class="panel-subtitle">Verify that all entered car specifications and contact information are accurate before publishing.</p>
+      </div>
+
+      <!-- Review Card -->
+      <div class="review-summary-card">
+        
+        <!-- Header / Main Photo & Price Row -->
+        <div style="display: grid; grid-template-columns: 240px 1fr; gap: 1.5rem; margin-bottom: 2rem; align-items: center;">
+          <div id="reviewMainPhoto" style="height: 160px; border-radius: var(--radius-md); overflow: hidden; position: relative; background: #000; border: 1px solid var(--border-color);">
+            <!-- Injected dynamically -->
+          </div>
+          <div>
+            <div style="font-size: 0.85rem; color: var(--primary-red); font-weight: 700; text-transform: uppercase;" id="revNegotiable"></div>
+            <h3 style="font-family: var(--font-heading); font-size: 1.75rem; color: var(--text-white); margin: 4px 0;" id="revTitle"></h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0.75rem;" id="revVariant"></p>
+            <div style="display: flex; align-items: baseline; gap: 8px;">
+              <span class="summary-price-highlight" id="revPrice"></span>
+              <span style="color: var(--text-dim); font-size: 0.9rem;" id="revLakhs"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 1: Specs Summary -->
+        <div class="review-section-block">
+          <div class="review-block-header">
+            <h4 class="review-block-title">Key Vehicle Specifications</h4>
+            <button type="button" class="btn-edit-step" onclick="jumpToStep(1)">Edit Specs</button>
+          </div>
+          <div class="summary-details-grid">
+            <div class="summary-data-item">
+              <span class="summary-label">Kilometres</span>
+              <span class="summary-value" id="revKm"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Fuel Type</span>
+              <span class="summary-value" id="revFuel"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Transmission</span>
+              <span class="summary-value" id="revTrans"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Ownership</span>
+              <span class="summary-value" id="revOwners"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Location / City</span>
+              <span class="summary-value" id="revLocation"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Registration No.</span>
+              <span class="summary-value" id="revRegNumber" style="font-family: monospace; letter-spacing: 1px;"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Health & History -->
+        <div class="review-section-block">
+          <div class="review-block-header">
+            <h4 class="review-block-title">Condition & Service Record</h4>
+            <button type="button" class="btn-edit-step" onclick="jumpToStep(2)">Edit Condition</button>
+          </div>
+          <div class="summary-details-grid">
+            <div class="summary-data-item">
+              <span class="summary-label">Overall Condition</span>
+              <span class="summary-value" id="revCondition"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Engine Condition</span>
+              <span class="summary-value" id="revEngine"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Accident History</span>
+              <span class="summary-value" id="revAccident"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Insurance</span>
+              <span class="summary-value" id="revInsurance"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Service History</span>
+              <span class="summary-value" id="revService"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Bank Hypothecation</span>
+              <span class="summary-value" id="revLoan"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Photos & Media -->
+        <div class="review-section-block">
+          <div class="review-block-header">
+            <h4 class="review-block-title">Media Uploaded</h4>
+            <button type="button" class="btn-edit-step" onclick="jumpToStep(3)">Edit Photos</button>
+          </div>
+          <div style="display: flex; gap: 1rem; align-items: center;">
+            <div style="background: var(--bg-card); padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <span class="summary-label">Standard Photos:</span>
+              <strong style="color: var(--text-white); margin-left: 6px;" id="revPhotoCount"></strong>
+            </div>
+            <div style="background: var(--bg-card); padding: 8px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+              <span class="summary-label">360&deg; Media:</span>
+              <strong style="color: var(--text-white); margin-left: 6px;" id="rev360Count"></strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Seller Info -->
+        <div class="review-section-block">
+          <div class="review-block-header">
+            <h4 class="review-block-title">Seller Information</h4>
+            <button type="button" class="btn-edit-step" onclick="jumpToStep(4)">Edit Contact</button>
+          </div>
+          <div class="summary-details-grid">
+            <div class="summary-data-item">
+              <span class="summary-label">Seller Name</span>
+              <span class="summary-value" id="revSellerName"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">WhatsApp Contact</span>
+              <span class="summary-value" id="revSellerPhone" style="color: #25D366;"></span>
+            </div>
+            <div class="summary-data-item">
+              <span class="summary-label">Preferred Calling Hours</span>
+              <span class="summary-value" id="revSellerTime"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Final Consent Checkbox -->
+      <div style="margin-bottom: 1.5rem;">
+        <label class="checkbox-label" style="align-items: flex-start;">
+          <input type="checkbox" id="finalConsentCheck" style="margin-top: 3px;" />
+          <span style="font-size: 0.875rem; color: var(--text-white);">
+            I hereby certify that all information, photographs, and vehicle documentation provided are true and accurate to the best of my knowledge.
+          </span>
+        </label>
+        <span class="error-message" id="finalConsentError">Please check the confirmation box to publish</span>
+      </div>
+
+      <!-- Actions -->
+      <div class="form-actions-bar">
+        <button type="button" class="btn btn-prev btn-prev-step">&larr; Back to Contact</button>
+        <button type="button" class="btn btn-primary" id="btnPublishListing" onclick="submitCarListing()" style="padding: 0.85rem 2.2rem; font-size: 1.05rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          Publish Car Listing
+        </button>
+      </div>
+    </div>
+
+    <!-- ==============================================
+         SUCCESS PANEL (Shown after publishing)
+         ============================================== -->
+    <div id="publishSuccessPanel" style="display: none;">
+      <div class="form-panel" style="display: block;">
+        <div class="publish-success-card">
+          <div class="success-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+
+          <h2 style="font-family: var(--font-heading); font-size: 2rem; color: var(--text-white); margin-bottom: 0.5rem;">
+            Listing Published Successfully!
+          </h2>
+          <p style="color: var(--text-muted); font-size: 1rem; max-width: 520px; margin: 0 auto 1rem;">
+            Your vehicle has been submitted. Reference ID: <strong id="successListingRef" style="color: var(--primary-red); font-family: monospace;"></strong>
+          </p>
+
+          <!-- Demo Limitations Identification (as required by prompt) -->
+          <div class="demo-notice-box">
+            <strong style="color: var(--text-white); display: block; margin-bottom: 4px;">Step 4 Frontend Demo Notice:</strong>
+            This listing has been saved to your local browser storage (<code>localStorage</code>). Live database storage, authentication, and cloud media upload will be wired in future development steps.
+          </div>
+
+          <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+            <a href="buy-cars.html" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              Explore Used Cars
+            </a>
+            <button type="button" class="btn btn-outline" onclick="location.reload()">
+              Post Another Car
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 0.75rem;">
+            <div class="ak-logo-badge">AK</div>
+            <div class="brand-text-wrap">
+              <span class="brand-name">CARS</span>
+              <span class="brand-slogan">Wheels for Feels</span>
+            </div>
+          </a>
+          <p>
+            AK Cars Auto Consulting - Karaikudi's trusted marketplace for buying, selling, and exchanging verified used cars.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Showroom Address</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            KVS Nagar Main Road,<br />
+            Kalanivasal, Karaikudi - 630001,<br />
+            Tamil Nadu, India
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Seller Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:8248828448" style="color: white; font-weight: 700;">&#x1F4DE; 8248828448</a></li>
+            <li><a href="https://wa.me/918248828448" target="_blank" style="color: #25D366; font-weight: 600;">WhatsApp Chat</a></li>
+            <li><a href="#valuation">Park &amp; Sale On Commission</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Seller Support</h4>
+          <ul class="footer-links">
+            <li><a href="#rto-transfer">RC Transfer Guidance</a></li>
+            <li><a href="#valuation">Free Car Valuation</a></li>
+            <li><a href="buy-cars.html">Explore Available Cars</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 AK Cars Auto Consulting. All rights reserved.</span>
+        <span>DRIVE SMART &bull; DRIVE HAPPY</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/sell-car.js"></script>
+</body>
+</html>

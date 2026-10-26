@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Used Cars | DriveX - Premium Pre-Owned Marketplace</title>
+  <meta name="description" content="Browse verified, certified second-hand cars at the best price in India. Filter by budget, brand, fuel, transmission, and location on DriveX.">
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Theme Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Site Header / Navigation -->
+  <header class="site-header">
+    <div class="container navbar">
+      <a href="index.html" class="brand-logo" aria-label="AK Cars Home">
+        <div class="ak-logo-badge">AK</div>
+        <div class="brand-text-wrap">
+          <span class="brand-name">CARS</span>
+          <span class="brand-slogan">Wheels for Feels</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="buy-cars.html" class="nav-link active">Buy Cars</a></li>
+          <li><a href="sell-car.html" class="nav-link">Sell Car</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <a href="sell-car.html" class="btn btn-outline btn-sm">Post Listing</a>
+        <a href="buy-cars.html" class="btn btn-primary btn-sm">Explore Cars</a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle mobile menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner / Breadcrumbs & Search Section -->
+  <section class="page-header-banner">
+    <div class="container">
+      <div class="page-header-content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span class="current">Buy Cars</span>
+        </nav>
+
+        <h1 class="page-title">Explore <span>Used Cars</span></h1>
+        <p class="page-subtitle">
+          Discover verified, multi-point inspected pre-owned cars at transparent prices. Fully backed with warranty and seamless financing.
+        </p>
+
+        <!-- Search Bar with Live Filtering -->
+        <div class="search-bar-wrapper">
+          <div class="search-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="carSearchInput" 
+            class="search-input" 
+            placeholder="Search by brand, model (e.g. Creta, Thar, Swift) or city..."
+            autocomplete="off"
+          />
+          <button 
+            type="button" 
+            id="clearSearchBtn" 
+            class="btn-icon" 
+            style="display: none; padding: 4px 8px; font-size: 0.8rem;" 
+            title="Clear search"
+          >
+            &times;
+          </button>
+          <button type="button" class="btn btn-primary" onclick="document.getElementById('carSearchInput').focus()">
+            Search
+          </button>
+        </div>
+
+        <!-- Popular Quick Tags -->
+        <div class="quick-tags">
+          <span class="quick-tag-label">Popular Filters:</span>
+          <button type="button" class="quick-tag-btn" data-brand="Hyundai">Hyundai</button>
+          <button type="button" class="quick-tag-btn" data-brand="Maruti Suzuki">Maruti Suzuki</button>
+          <button type="button" class="quick-tag-btn" data-brand="Tata">Tata</button>
+          <button type="button" class="quick-tag-btn" data-fuel="Electric">Electric Vehicles</button>
+          <button type="button" class="quick-tag-btn" data-budget="1000000">Under ₹10 Lakh</button>
+          <button type="button" class="quick-tag-btn" data-budget="1500000">Under ₹15 Lakh</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marketplace Main Layout -->
+  <main class="container marketplace-layout">
+
+    <!-- DESKTOP FILTER SIDEBAR -->
+    <aside class="filter-sidebar" id="desktopFilterSidebar" aria-label="Car Filters">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+          Filters
+        </h2>
+        <button type="button" class="btn-reset-filters">Reset All</button>
+      </div>
+
+      <!-- 1. Brand Filter -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Make / Brand</span>
+        </div>
+        <div class="filter-options-list">
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="Hyundai">
+              Hyundai
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="Hyundai">0</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="Maruti Suzuki">
+              Maruti Suzuki
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="Maruti Suzuki">0</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="Tata">
+              Tata
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="Tata">0</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="Mahindra">
+              Mahindra
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="Mahindra">0</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="Honda">
+              Honda
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="Honda">0</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="Toyota">
+              Toyota
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="Toyota">0</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="Kia">
+              Kia
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="Kia">0</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner">
+              <input type="checkbox" name="brandFilter" value="BMW">
+              BMW
+            </span>
+            <span class="badge-count brand-count-badge" data-brand="BMW">0</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 2. Budget (INR) -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Budget (INR)</span>
+        </div>
+        <div class="range-row">
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-bottom: 4px;">Min Price</label>
+            <select class="filter-select min-budget-select">
+              <option value="0">₹0 (Min)</option>
+              <option value="500000">₹5 Lakh</option>
+              <option value="1000000">₹10 Lakh</option>
+              <option value="1500000">₹15 Lakh</option>
+              <option value="2500000">₹25 Lakh</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-bottom: 4px;">Max Price</label>
+            <select class="filter-select max-budget-select">
+              <option value="all">Any Price</option>
+              <option value="800000">₹8 Lakh</option>
+              <option value="1200000">₹12 Lakh</option>
+              <option value="1800000">₹18 Lakh</option>
+              <option value="2500000">₹25 Lakh</option>
+              <option value="4000000">₹40 Lakh</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Fuel Type -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Fuel Type</span>
+        </div>
+        <div class="pill-group">
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="fuel-petrol" value="Petrol">
+            <label for="fuel-petrol">Petrol</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="fuel-diesel" value="Diesel">
+            <label for="fuel-diesel">Diesel</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="fuel-cng" value="CNG">
+            <label for="fuel-cng">CNG</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="fuel-electric" value="Electric">
+            <label for="fuel-electric">Electric</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="fuel-hybrid" value="Hybrid">
+            <label for="fuel-hybrid">Hybrid</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Transmission -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Transmission</span>
+        </div>
+        <div class="pill-group">
+          <div class="pill-option">
+            <input type="checkbox" name="transmissionFilter" id="trans-auto" value="Automatic">
+            <label for="trans-auto">Automatic</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="transmissionFilter" id="trans-manual" value="Manual">
+            <label for="trans-manual">Manual</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Manufacturing Year -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Manufacturing Year</span>
+        </div>
+        <select class="filter-select year-filter-select">
+          <option value="all">All Model Years</option>
+          <option value="2023">2023 & Above</option>
+          <option value="2022">2022 & Above</option>
+          <option value="2021">2021 & Above</option>
+          <option value="2020">2020 & Above</option>
+          <option value="2019">2019 & Above</option>
+        </select>
+      </div>
+
+      <!-- 6. Kilometres Driven -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Kilometres Driven</span>
+        </div>
+        <select class="filter-select km-filter-select">
+          <option value="all">Any Kilometres</option>
+          <option value="20000">Under 20,000 km</option>
+          <option value="35000">Under 35,000 km</option>
+          <option value="50000">Under 50,000 km</option>
+          <option value="80000">Under 80,000 km</option>
+        </select>
+      </div>
+
+      <!-- 7. Previous Owners -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>Previous Owners</span>
+        </div>
+        <div class="pill-group">
+          <div class="pill-option">
+            <input type="checkbox" name="ownerFilter" id="owner-1" value="1">
+            <label for="owner-1">1st Owner</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="ownerFilter" id="owner-2" value="2">
+            <label for="owner-2">2nd Owner</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="ownerFilter" id="owner-3" value="3">
+            <label for="owner-3">3rd Owner</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="ownerFilter" id="owner-4" value="4+">
+            <label for="owner-4">4+ Owners</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Location -->
+      <div class="filter-group">
+        <div class="filter-group-title">
+          <span>City / Location</span>
+        </div>
+        <select class="filter-select location-filter-select">
+          <option value="all">All Cities across India</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Delhi NCR">Delhi NCR</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Pune">Pune</option>
+          <option value="Hyderabad">Hyderabad</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Ahmedabad">Ahmedabad</option>
+          <option value="Kolkata">Kolkata</option>
+        </select>
+      </div>
+    </aside>
+
+    <!-- LISTINGS AREA -->
+    <section class="listings-area" aria-label="Available Car Listings">
+
+      <!-- Topbar: Result count, Sort, Mobile Filter Button -->
+      <div class="listings-topbar">
+        <div class="results-info">
+          <button type="button" class="btn-mobile-filter" id="openMobileFilterBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+            </svg>
+            Filters
+            <span class="badge-count" id="mobileFilterBadge" style="display: none; background: var(--primary-red); color: white;">0</span>
+          </button>
+          <span class="results-count" id="resultsCountDisplay">Loading inventory...</span>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="sort-wrapper">
+            <label for="sortCarsSelect">Sort By:</label>
+            <select id="sortCarsSelect" class="sort-select">
+              <option value="newest">Newest First</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="km-low">Kilometres: Low to High</option>
+              <option value="year-new">Model Year: New to Old</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filters Badge Row -->
+      <div class="active-filters-row" id="activeFiltersRow" style="display: none;"></div>
+
+      <!-- Dynamic Cards Grid -->
+      <div class="cars-grid" id="carsGridContainer" role="region" aria-live="polite">
+        <!-- Injected dynamically via buy-cars.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MOBILE FILTER DRAWER -->
+  <div class="mobile-filter-drawer" id="mobileFilterDrawer" aria-modal="true" role="dialog">
+    <div class="mobile-drawer-content">
+      <div class="mobile-drawer-header">
+        <h3 class="sidebar-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+          Filter Cars
+        </h3>
+        <button type="button" class="btn-close-drawer" id="closeMobileFilterBtn">&times;</button>
+      </div>
+
+      <div class="sidebar-header" style="margin-bottom: 1rem; padding-bottom: 0.5rem;">
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Adjust criteria</span>
+        <button type="button" class="btn-reset-filters">Reset All</button>
+      </div>
+
+      <!-- Mobile Brands -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>Make / Brand</span></div>
+        <div class="filter-options-list">
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="Hyundai"> Hyundai</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="Maruti Suzuki"> Maruti Suzuki</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="Tata"> Tata</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="Mahindra"> Mahindra</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="Honda"> Honda</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="Toyota"> Toyota</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="Kia"> Kia</span>
+          </label>
+          <label class="checkbox-label">
+            <span class="checkbox-inner"><input type="checkbox" name="brandFilter" value="BMW"> BMW</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Mobile Budget -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>Budget Range</span></div>
+        <div class="range-row">
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-bottom: 4px;">Min</label>
+            <select class="filter-select min-budget-select">
+              <option value="0">₹0</option>
+              <option value="500000">₹5 Lakh</option>
+              <option value="1000000">₹10 Lakh</option>
+              <option value="1500000">₹15 Lakh</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size: 0.75rem; color: var(--text-dim); display: block; margin-bottom: 4px;">Max</label>
+            <select class="filter-select max-budget-select">
+              <option value="all">Any</option>
+              <option value="800000">₹8 Lakh</option>
+              <option value="1200000">₹12 Lakh</option>
+              <option value="1800000">₹18 Lakh</option>
+              <option value="2500000">₹25 Lakh</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Fuel Type -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>Fuel Type</span></div>
+        <div class="pill-group">
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="mob-fuel-petrol" value="Petrol">
+            <label for="mob-fuel-petrol">Petrol</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="mob-fuel-diesel" value="Diesel">
+            <label for="mob-fuel-diesel">Diesel</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="mob-fuel-cng" value="CNG">
+            <label for="mob-fuel-cng">CNG</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="mob-fuel-electric" value="Electric">
+            <label for="mob-fuel-electric">Electric</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="fuelFilter" id="mob-fuel-hybrid" value="Hybrid">
+            <label for="mob-fuel-hybrid">Hybrid</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Transmission -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>Transmission</span></div>
+        <div class="pill-group">
+          <div class="pill-option">
+            <input type="checkbox" name="transmissionFilter" id="mob-trans-auto" value="Automatic">
+            <label for="mob-trans-auto">Automatic</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="transmissionFilter" id="mob-trans-manual" value="Manual">
+            <label for="mob-trans-manual">Manual</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Year -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>Model Year</span></div>
+        <select class="filter-select year-filter-select">
+          <option value="all">All Years</option>
+          <option value="2023">2023 & Above</option>
+          <option value="2022">2022 & Above</option>
+          <option value="2021">2021 & Above</option>
+          <option value="2020">2020 & Above</option>
+        </select>
+      </div>
+
+      <!-- Mobile Km -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>Kilometres</span></div>
+        <select class="filter-select km-filter-select">
+          <option value="all">Any Kilometres</option>
+          <option value="20000">Under 20,000 km</option>
+          <option value="35000">Under 35,000 km</option>
+          <option value="50000">Under 50,000 km</option>
+        </select>
+      </div>
+
+      <!-- Mobile Owners -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>Owners</span></div>
+        <div class="pill-group">
+          <div class="pill-option">
+            <input type="checkbox" name="ownerFilter" id="mob-owner-1" value="1">
+            <label for="mob-owner-1">1st Owner</label>
+          </div>
+          <div class="pill-option">
+            <input type="checkbox" name="ownerFilter" id="mob-owner-2" value="2">
+            <label for="mob-owner-2">2nd Owner</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile City -->
+      <div class="filter-group">
+        <div class="filter-group-title"><span>City</span></div>
+        <select class="filter-select location-filter-select">
+          <option value="all">All Cities</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Delhi NCR">Delhi NCR</option>
+          <option value="Bangalore">Bangalore</option>
+          <option value="Pune">Pune</option>
+          <option value="Hyderabad">Hyderabad</option>
+        </select>
+      </div>
+
+      <!-- Apply Button -->
+      <div style="margin-top: 1.5rem; padding-bottom: 2rem;">
+        <button type="button" class="btn btn-primary" id="applyMobileFilterBtn" style="width: 100%;">
+          View Filtered Cars
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification for View Details Routing Preview -->
+  <div class="toast-notice" id="detailsToast" role="alert" aria-live="assertive">
+    <div style="color: var(--primary-red);">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+    </div>
+    <div id="detailsToastMsg"></div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 0.75rem;">
+            <div class="ak-logo-badge">AK</div>
+            <div class="brand-text-wrap">
+              <span class="brand-name">CARS</span>
+              <span class="brand-slogan">Wheels for Feels</span>
+            </div>
+          </a>
+          <p>
+            AK Cars Auto Consulting - Quality Cars, Trusted Service, Your Dreams Our Priority. Buy, sell, and exchange in Karaikudi.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Showroom Location</h4>
+          <p style="color: var(--text-muted); font-size: 0.875rem; line-height: 1.6;">
+            KVS Nagar Main Road,<br />
+            Kalanivasal, Karaikudi - 630001,<br />
+            Tamil Nadu, India
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Quick Contact</h4>
+          <ul class="footer-links">
+            <li><a href="tel:8248828448" style="color: white; font-weight: 700;">&#x1F4DE; 8248828448</a></li>
+            <li><a href="https://wa.me/918248828448" target="_blank" style="color: #25D366; font-weight: 600;">WhatsApp Chat</a></li>
+            <li><a href="sell-car.html">Park &amp; Sale Your Car</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Consulting Services</h4>
+          <ul class="footer-links">
+            <li><a href="buy-cars.html">Commercial &amp; Passenger Cars</a></li>
+            <li><a href="sell-car.html">Commission Basis Park &amp; Sale</a></li>
+            <li><a href="#rto">RC Transfer Assistance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 AK Cars Auto Consulting. All rights reserved.</span>
+        <span>DRIVE SMART &bull; DRIVE HAPPY</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/cars-data.js"></script>
+  <script src="js/buy-cars.js"></script>
+</body>
+</html>
