@@ -98,47 +98,31 @@ img {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
 }
 
-.ak-logo-badge {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 900;
-  letter-spacing: -1px;
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--primary-red) 0%, #8b0000 100%);
-  padding: 4px 12px;
+.brand-logo-badge {
+  background: #ffffff;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 16px var(--primary-red-glow), inset 0 1px 1px rgba(255,255,255,0.4);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-  display: inline-block;
-  line-height: 1.1;
-}
-
-.brand-text-wrap {
   display: flex;
-  flex-direction: column;
-  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), 0 0 12px var(--primary-red-glow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.brand-name {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: var(--text-white);
-  letter-spacing: 1.5px;
+.brand-logo:hover .brand-logo-badge {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(229, 9, 20, 0.45);
 }
 
-.brand-slogan {
-  font-size: 0.68rem;
-  font-style: italic;
-  font-weight: 500;
-  color: var(--primary-red);
-  letter-spacing: 0.5px;
-  margin-top: 2px;
+.brand-logo-img {
+  height: 46px;
+  width: auto;
+  max-width: 135px;
+  object-fit: contain;
+  display: block;
 }
 
 .consulting-tag {
