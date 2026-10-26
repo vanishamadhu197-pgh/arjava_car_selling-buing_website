@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "site": "akcars-auto",
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "**/.*",
+      "backend/**",
+      "*.db",
+      "*.sqlite"
+    ]
+  }
+}
